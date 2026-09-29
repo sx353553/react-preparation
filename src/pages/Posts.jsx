@@ -24,7 +24,7 @@ const Posts = () => {
     fetchPosts();
   }, [id]);
 
-  return (
+  return {
     <>
       <div className="post__search">
         <button>← Back</button>
@@ -34,7 +34,8 @@ const Posts = () => {
             type="number"
             value={searchId}
             onChange={(event) => setSearchId(event.target.value)}
-            onKeyDown={(event) => console.log(event.key)}
+            onKeyDown={(event) => event.key === 'Enter' && onSearch()}
+            }}
           />
           <button onClick={() => onSearch()}>Enter</button>
         </div>
